@@ -7,7 +7,10 @@ if __name__ == "__main__":
     CREATE TABLE IF NOT EXISTS earnings (
         id INTEGER PRIMARY KEY, 
         today DATE DEFAULT CURRENT_DATE,
-        revenue INTEGER,
+        daily_income INTEGER,
+        daily_customers INTEGER,
+        weekly_income INTEGER,
+        weekly_customers INTEGER,
         advertising INTEGER,
         UNIQUE(today))
     """
