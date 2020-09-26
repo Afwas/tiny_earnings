@@ -147,5 +147,7 @@ cython_debug/
 .idea/tiny_earnings.iml
 .idea/vcs.xml
 
+.idea/
+
 secret.py
 earnings.sqlite
