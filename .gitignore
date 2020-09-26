@@ -148,3 +148,4 @@ cython_debug/
 .idea/vcs.xml
 
 secret.py
+earnings.sqlite
