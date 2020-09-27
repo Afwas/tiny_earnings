@@ -34,7 +34,7 @@ def file():
     header = "id,date,daily_income,daily_customers,weekly_income,"
     header += "weekly_customers,advertisement"
 
-    with open('tiny_earnings.csv.csv', 'w') as f:
+    with open('tiny_earnings.csv', 'w') as f:
         f.write(header)
         for row in conn.execute("SELECT * FROM earnings;"):
             items = [str(x) for x in row]
