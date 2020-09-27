@@ -151,4 +151,4 @@ cython_debug/
 
 secret.py
 earnings.sqlite
-!/tiny_earnings.csv
+tiny_earnings.csv
