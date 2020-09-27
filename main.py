@@ -21,7 +21,7 @@ if __name__ == "__main__":
             company_json["error"]["error"]))
         sys.exit(1)
 
-    pprint(company_json)
+    # pprint(company_json)
     daily_income = company_json['company']['daily_income']
     daily_customers = company_json['company']['daily_customers']
     weekly_income = company_json['company']['weekly_income']
@@ -49,6 +49,15 @@ if __name__ == "__main__":
     conn.close()
 
     conn = sqlite3.connect('earnings.sqlite')
+    header = "|  id |    date    | daily_income | daily_customers | weekly_income "
+    header += "| weekly_customers | advertisement |"
+    print(header)
+    div = "+-----+------------+--------------+-----------------+---------------"
+    div += "+------------------+---------------+"
+    print(div)
     for row in conn.execute("SELECT * FROM earnings;"):
-        pprint(row)
+        items = [str(x) for x in row]
+        line = "| {:>3} | {} |".format(*items[0:2])
+        line += " {:>12} | {:>15} | {:>13} | {:>16} | {:>13} |".format(*items[2:8])
+        print(line)
     conn.close()
