@@ -1,6 +1,7 @@
 import sqlite3
 
-def view_sqltable():
+
+def sql_table():
     conn = sqlite3.connect('earnings.sqlite')
     header = "|  id |    date    | daily_income | daily_customers | weekly_income "
     header += "| weekly_customers | advertisement |"
@@ -15,7 +16,8 @@ def view_sqltable():
         print(line)
     conn.close()
 
-def view_csv():
+
+def csv():
     conn = sqlite3.connect('earnings.sqlite')
     header = "id,date,daily_income,daily_customers,weekly_income,"
     header += "weekly_customers,advertisement"
@@ -25,3 +27,24 @@ def view_csv():
         line = ",".join(items)
         print(line)
     conn.close()
+
+
+def file():
+    conn = sqlite3.connect('earnings.sqlite')
+    header = "id,date,daily_income,daily_customers,weekly_income,"
+    header += "weekly_customers,advertisement"
+
+    with open('tiny_earnings.csv', 'w') as f:
+        f.write(header)
+        for row in conn.execute("SELECT * FROM earnings;"):
+            items = [str(x) for x in row]
+            line = ",".join(items)
+            f.write(line)
+
+    conn.close()
+
+
+if __name__ == "__main__":
+    sql_table()
+    csv()
+    file()

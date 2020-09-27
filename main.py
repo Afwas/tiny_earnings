@@ -10,5 +10,6 @@ if __name__ == "__main__":
     data = model.get_data_from_api(url)
     model.store_data(data)
 
-    view.view_sqltable()
-    view.view_csv()
+    view.sql_table()
+    # view.csv()
+    view.file()
