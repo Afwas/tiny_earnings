@@ -38,7 +38,7 @@ def file():
         f.write(header)
         for row in conn.execute("SELECT * FROM earnings;"):
             items = [str(x) for x in row]
-            line = ",".join(items)
+            line = '\n' + ",".join(items)
             f.write(line)
 
     conn.close()
